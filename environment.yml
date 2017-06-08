@@ -1,0 +1,103 @@
+name: status_bar_apps
+channels:
+- defaults
+dependencies:
+- openssl=1.0.2l=0
+- pip=9.0.1=py36_1
+- python=3.6.1=2
+- readline=6.2=2
+- setuptools=27.2.0=py36_0
+- sqlite=3.13.0=0
+- tk=8.5.18=0
+- wheel=0.29.0=py36_0
+- xz=5.2.2=1
+- zlib=1.2.8=3
+- pip:
+  - altgraph==0.14
+  - asn1crypto==0.22.0
+  - certifi==2017.4.17
+  - cffi==1.10.0
+  - chardet==3.0.3
+  - cryptography==1.9
+  - idna==2.5
+  - macholib==1.8
+  - modulegraph==0.15
+  - py2app==0.14
+  - pycparser==2.17
+  - pyobjc==3.2.1
+  - pyobjc-core==3.2.1
+  - pyobjc-framework-accounts==3.2.1
+  - pyobjc-framework-addressbook==3.2.1
+  - pyobjc-framework-applescriptkit==3.2.1
+  - pyobjc-framework-applescriptobjc==3.2.1
+  - pyobjc-framework-applicationservices==3.2.1
+  - pyobjc-framework-automator==3.2.1
+  - pyobjc-framework-avfoundation==3.2.1
+  - pyobjc-framework-avkit==3.2.1
+  - pyobjc-framework-calendarstore==3.2.1
+  - pyobjc-framework-cfnetwork==3.2.1
+  - pyobjc-framework-cloudkit==3.2.1
+  - pyobjc-framework-cocoa==3.2.1
+  - pyobjc-framework-collaboration==3.2.1
+  - pyobjc-framework-contacts==3.2.1
+  - pyobjc-framework-contactsui==3.2.1
+  - pyobjc-framework-corebluetooth==3.2.1
+  - pyobjc-framework-coredata==3.2.1
+  - pyobjc-framework-corelocation==3.2.1
+  - pyobjc-framework-coretext==3.2.1
+  - pyobjc-framework-corewlan==3.2.1
+  - pyobjc-framework-cryptotokenkit==3.2.1
+  - pyobjc-framework-dictionaryservices==3.2.1
+  - pyobjc-framework-diskarbitration==3.2.1
+  - pyobjc-framework-eventkit==3.2.1
+  - pyobjc-framework-exceptionhandling==3.2.1
+  - pyobjc-framework-findersync==3.2.1
+  - pyobjc-framework-fsevents==3.2.1
+  - pyobjc-framework-gamecenter==3.2.1
+  - pyobjc-framework-gamecontroller==3.2.1
+  - pyobjc-framework-imagecapturecore==3.2.1
+  - pyobjc-framework-imserviceplugin==3.2.1
+  - pyobjc-framework-inputmethodkit==3.2.1
+  - pyobjc-framework-installerplugins==3.2.1
+  - pyobjc-framework-instantmessage==3.2.1
+  - pyobjc-framework-intents==3.2.1
+  - pyobjc-framework-iosurface==3.2.1
+  - pyobjc-framework-latentsemanticmapping==3.2.1
+  - pyobjc-framework-launchservices==3.2.1
+  - pyobjc-framework-localauthentication==3.2.1
+  - pyobjc-framework-mapkit==3.2.1
+  - pyobjc-framework-mediaaccessibility==3.2.1
+  - pyobjc-framework-medialibrary==3.2.1
+  - pyobjc-framework-mediaplayer==3.2.1
+  - pyobjc-framework-modelio==3.2.1
+  - pyobjc-framework-multipeerconnectivity==3.2.1
+  - pyobjc-framework-netfs==3.2.1
+  - pyobjc-framework-networkextension==3.2.1
+  - pyobjc-framework-notificationcenter==3.2.1
+  - pyobjc-framework-opendirectory==3.2.1
+  - pyobjc-framework-photos==3.2.1
+  - pyobjc-framework-photosui==3.2.1
+  - pyobjc-framework-preferencepanes==3.2.1
+  - pyobjc-framework-pubsub==3.2.1
+  - pyobjc-framework-qtkit==3.2.1
+  - pyobjc-framework-quartz==3.2.1
+  - pyobjc-framework-safariservices==3.2.1
+  - pyobjc-framework-scenekit==3.2.1
+  - pyobjc-framework-screensaver==3.2.1
+  - pyobjc-framework-scriptingbridge==3.2.1
+  - pyobjc-framework-searchkit==3.2.1
+  - pyobjc-framework-servicemanagement==3.2.1
+  - pyobjc-framework-social==3.2.1
+  - pyobjc-framework-spritekit==3.2.1
+  - pyobjc-framework-storekit==3.2.1
+  - pyobjc-framework-syncservices==3.2.1
+  - pyobjc-framework-systemconfiguration==3.2.1
+  - pyobjc-framework-webkit==3.2.1
+  - pyopenssl==17.0.0
+  - requests==2.17.3
+  - rumps==0.2.2
+  - simplejson==3.10.0
+  - six==1.10.0
+  - urllib3==1.21.1
+prefix: /Users/Sayan/miniconda3/envs/status_bar_apps
+
