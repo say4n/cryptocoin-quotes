@@ -26,6 +26,9 @@ class CoinMarketCapAPI:
         else:
             return "USD"
 
+    def response_available(self):
+        return self._cached_response is not None
+
     def _time_since_last_update(self):
         """Returns time since the last ticker update"""
         return (datetime.datetime.utcnow() - self._last_update).total_seconds() // 60

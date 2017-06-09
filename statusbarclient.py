@@ -66,8 +66,9 @@ class CryptoCoinSBA(rumps.App):
                 menuItem.state = 0
         else:
             print("Working connection")
-            self.icon = "icons/main.png"
-            self.title = "CryptoCoin Quotes"
+            if not self._api.response_available():
+                self.icon = "icons/main.png"
+                self.title = "CryptoCoin Quotes"
 
 
 if __name__ == "__main__":
