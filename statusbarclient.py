@@ -2,52 +2,56 @@ from coinmarketcap import CoinMarketCapAPI
 from coinmarketcap import update_interval
 import rumps
 
-# TODO - Add currency chooser
+# TODO - toggle states
 
 
 class CryptoCoinSBA(rumps.App):
     def __init__(self):
         super(CryptoCoinSBA, self).__init__(name="CryptoCoin Quotes", title="CryptoCoin Quotes", icon="icons/main.png")
         self._api = CoinMarketCapAPI(currency="INR")
-        self.menu = ["Bitcoin", "Ethereum", "Litecoin", "Ripple"]
+        self.menu = [["Crypto Currency", [rumps.MenuItem("Bitcoin",  callback=self.bitcoin),
+                                         rumps.MenuItem("Ethereum", callback=self.ethereum),
+                                         rumps.MenuItem("Ripple",   callback=self.ripple),
+                                         rumps.MenuItem("Litecoin", callback=self.litecoin)]],
+                     ["Conversion Currency", [rumps.MenuItem(currency, callback=self.change_currency) for currency in
+                                   self._api.valid_currencies]]]
+        self.cryptocurrency = None
 
-    @rumps.clicked("Bitcoin")
+    def change_currency(self, sender):
+        # set currency
+        chosen_currency = sender.title
+        self._api.set_currency(chosen_currency)
+
+        # update info if bitcoin was chosen!
+        if self.cryptocurrency is not None:
+            method_name = self.cryptocurrency.title.lower()
+            try:
+                method = getattr(self, method_name)
+                print(f"Calling method : {method_name}")
+                method(self.cryptocurrency)
+                print(f"Currency set to : {self._api.get_currency()}")
+            except AttributeError:
+                raise NotImplementedError(f"{method_name} not implemented")
+
     def bitcoin(self, sender):
-        self.title = "{:.2f} INR".format(self._api.get_quote(id="bitcoin"))
+        self.cryptocurrency = sender
+        self.title = "{:.2f} {}".format(self._api.get_quote(id="bitcoin"), self._api.get_currency())
         self.icon = "icons/Bitcoin@2x.png"
-        sender.state = 1
-        self._toggle_states(sender)
 
-    @rumps.clicked("Ethereum")
-    def ether(self, sender):
-        self.title = "{:.2f} INR".format(self._api.get_quote(id="ethereum"))
+    def ethereum(self, sender):
+        self.cryptocurrency = sender
+        self.title = "{:.2f} {}".format(self._api.get_quote(id="ethereum"), self._api.get_currency())
         self.icon = "icons/Ethereum@2x.png"
-        sender.state = 1
-        self._toggle_states(sender)
 
-    @rumps.clicked("Ripple")
     def ripple(self, sender):
-        self.title = "{:.2f} INR".format(self._api.get_quote(id="ripple"))
+        self.cryptocurrency = sender
+        self.title = "{:.2f} {}".format(self._api.get_quote(id="ripple"), self._api.get_currency())
         self.icon = "icons/Ripple@2x.png"
-        sender.state = 1
-        self._toggle_states(sender)
 
-    @rumps.clicked("Litecoin")
     def litecoin(self, sender):
-        self.title = "{:.2f} INR".format(self._api.get_quote(id="litecoin"))
+        self.cryptocurrency = sender
+        self.title = "{:.2f} {}".format(self._api.get_quote(id="litecoin"), self._api.get_currency())
         self.icon = "icons/Litecoin@2x.png"
-        sender.state = 1
-        self._toggle_states(sender)
-
-    def _toggle_states(self, sender):
-        # switch off all other states
-        for menuItem in self.menu.values():
-            if menuItem.title not in [sender.title, "Quit"]:
-                menuItem.state = 0
-
-        # for debugging
-        # for menuItem in self.menu.values():
-        #     print(f"{menuItem.title} - {menuItem.state}")
 
     @rumps.timer(update_interval)
     def update_quote(self, _):
@@ -69,7 +73,6 @@ class CryptoCoinSBA(rumps.App):
             if not self._api.response_available():
                 self.icon = "icons/main.png"
                 self.title = "CryptoCoin Quotes"
-
 
 if __name__ == "__main__":
     CryptoCoinSBA().run()
