@@ -2,10 +2,9 @@
 
 Get up to date crypto currency quotes from the comfort of your status bar !
 
-Steps :
+Binary :
 ------
-Launch the app, (`python statusbarclient.py`)
-
+Launch the [app](https://github.com/Sayan98/cryptocoin-quotes/releases), 
 ![CryptoCoin Quotes App](screenshots/1.png)
 
 Choose a crypto currency,
@@ -20,16 +19,14 @@ And that's it !
 
 ![CryptoCoin Quotes App](screenshots/4.png)
 
-For your viewing pleasure,
-
-![CryptoCoin Quotes App](screenshots/5.png)
-
 
 Dependencies :
 -------------
 - [requests](http://docs.python-requests.org/en/master/)
 - [rumps](http://rumps.readthedocs.io/en/latest/)
 
+Development :
+------------
 Using conda, build an identical environment with `conda env create -f environment.yml`
 
 
