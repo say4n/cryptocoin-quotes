@@ -8,7 +8,7 @@ update_interval = 60 * 5  # 5 minutes
 class CoinMarketCapAPI:
     def __init__(self, currency="USD"):
         # variables
-        self._url = "https://api.coinmarketcap.com/v1/ticker/?limit=10&convert="
+        self._url = "http://api.coinmarketcap.com/v1/ticker/?limit=10&convert="
         self.valid_currencies = ["AUD", "BRL", "CAD", "CHF", "CNY", "EUR", "GBP", "HKD", "IDR", "INR", "JPY", "KRW",
                                  "MXN", "RUB", "USD"]
         self._currency = self._validate_currency(currency)
@@ -71,8 +71,9 @@ class CoinMarketCapAPI:
         if self._currency != currency:
             print(f"Setting currency to {currency}")
             self._currency = currency
-            self._cached_response = None
-            self.get_ticker()
+            if currency != "USD":
+                self._cached_response = None
+                self.get_ticker()
             print("Done")
 
 if __name__ == "__main__":

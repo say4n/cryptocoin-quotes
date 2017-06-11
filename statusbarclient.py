@@ -7,7 +7,7 @@ import rumps
 
 class CryptoCoinSBA(rumps.App):
     def __init__(self):
-        super(CryptoCoinSBA, self).__init__(name="CryptoCoin Quotes", title="CryptoCoin Quotes", icon="icons/main.png")
+        super(CryptoCoinSBA, self).__init__(name="CryptoCoin Quotes", title='', icon="icons/main.png")
         self._api = CoinMarketCapAPI(currency="INR")
         self.menu = [["Crypto Currency", [rumps.MenuItem("Bitcoin",  callback=self.bitcoin),
                                          rumps.MenuItem("Ethereum", callback=self.ethereum),
