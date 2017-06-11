@@ -1,8 +1,8 @@
-from coinmarketcap import CoinMarketCapAPI
-from coinmarketcap import update_interval
+from coinmarketcap import CoinMarketCapAPI, update_interval
 import rumps
 
 # TODO - toggle states
+__version__ = "1.0.1"
 
 
 class CryptoCoinSBA(rumps.App):
@@ -14,7 +14,8 @@ class CryptoCoinSBA(rumps.App):
                                          rumps.MenuItem("Ripple",   callback=self.ripple),
                                          rumps.MenuItem("Litecoin", callback=self.litecoin)]],
                      ["Conversion Currency", [rumps.MenuItem(currency, callback=self.change_currency) for currency in
-                                   self._api.valid_currencies]]]
+                                   self._api.valid_currencies]],
+                     rumps.MenuItem("About", callback=self.about)]
         self.cryptocurrency = None
 
     def change_currency(self, sender):
@@ -73,6 +74,12 @@ class CryptoCoinSBA(rumps.App):
             if not self._api.response_available():
                 self.icon = "icons/main.png"
                 self.title = "CryptoCoin Quotes"
+
+    def about(self, sender) -> None:
+        app_version = __version__
+        message = u"Copyright © 2017, Sayan Goswami\nAll Rights Reserved\n\nv{}".format(app_version)
+        rumps.alert(title="About", message=message, ok='Close')
+
 
 if __name__ == "__main__":
     CryptoCoinSBA().run()

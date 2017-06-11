@@ -12,9 +12,11 @@ Usage:
 # Through terminal : ./dist/CryptoCoin\ Quotes.app/Contents/MacOS/statusbarclient
 
 from setuptools import setup
+from statusbarclient import __version__
 
 APP = ['statusbarclient.py']
 APP_NAME = "CryptoCoin Quotes"
+APP_VERSION = __version__
 DATA_FILES = ['./icons']
 OPTIONS = {
     'iconfile': '/Users/Sayan/Desktop/Projects/CryptoTicker/macosAssets/icon.icns',
@@ -25,8 +27,8 @@ OPTIONS = {
         'CFBundleDisplayName': APP_NAME,
         'CFBundleGetInfoString': "Get crypto coin quotes ASAP!",
         'CFBundleIdentifier': "com.sayangoswami.osx.cryptoquotes",
-        'CFBundleVersion': "1.0.0",
-        'CFBundleShortVersionString': "1.0.0",
+        'CFBundleVersion': APP_VERSION,
+        'CFBundleShortVersionString': APP_VERSION,
         'NSHumanReadableCopyright': u"Copyright © 2017, Sayan Goswami, All Rights Reserved"
     },
     'packages': ['rumps', 'requests'],
@@ -34,7 +36,9 @@ OPTIONS = {
 
 setup(
     app=APP,
+    name=APP_NAME,
     data_files=DATA_FILES,
+    version=APP_VERSION,
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
     install_requires=['rumps', 'requests'],
