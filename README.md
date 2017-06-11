@@ -4,7 +4,8 @@ Get up to date crypto currency quotes from the comfort of your status bar !
 
 Binary :
 ------
-Launch the [app](https://github.com/Sayan98/cryptocoin-quotes/releases), 
+Download & launch the [app](https://github.com/Sayan98/cryptocoin-quotes/releases), 
+
 ![CryptoCoin Quotes App](screenshots/1.png)
 
 Choose a crypto currency,
