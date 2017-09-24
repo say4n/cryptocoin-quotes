@@ -1,5 +1,7 @@
 # CryptoCoin Quotes
 
+[![forthebadge](http://forthebadge.com/images/badges/its-not-a-lie-if-you-believe-it.svg)](http://forthebadge.com)
+
 Get up to date crypto currency quotes from the comfort of your status bar !
 
 Binary :
